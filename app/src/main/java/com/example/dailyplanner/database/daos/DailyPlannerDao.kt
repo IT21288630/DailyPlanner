@@ -11,8 +11,8 @@ interface DailyPlannerDao {
     @Delete
     suspend fun delete(dailyPlan: DailyPlan)
 
-    @Delete
-    suspend fun deleteAll(dailyPlans: List<DailyPlan>)
+    @Query("DELETE From DailyPlan")
+    suspend fun deleteAll()
 
     @Query("SELECT * From DailyPlan")
     fun getAllDailyPlanItems(): List<DailyPlan>

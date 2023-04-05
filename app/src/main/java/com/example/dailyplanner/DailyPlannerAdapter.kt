@@ -69,31 +69,35 @@ class DailyPlannerAdapter() : RecyclerView.Adapter<DailyPlannerAdapter.DailyPlan
             } else {
                 doneBtn.text = "Done"
                 tvCompleted.visibility = View.INVISIBLE
-            }
 
-            doneBtn.setOnClickListener {
-                CoroutineScope(Dispatchers.IO).launch {
-                    val repository = DailyPlannerRepository(DailyPlannerDatabase.getInstance(context))
-                    repository.updateItem(true, data[position].id)
-                    val data = repository.getAllDailyPlanItems()
+                doneBtn.setOnClickListener {
+                    CoroutineScope(Dispatchers.IO).launch {
+                        val repository =
+                            DailyPlannerRepository(DailyPlannerDatabase.getInstance(context))
+                        repository.updateItem(true, data[position].id)
+                        val data = repository.getAllDailyPlanItems()
 
-                    withContext(Dispatchers.Main){
-                        setData(data, context)
+                        withContext(Dispatchers.Main) {
+                            setData(data, context)
+                        }
+                    }
+                }
+
+                deleteBtn.setOnClickListener {
+                    CoroutineScope(Dispatchers.IO).launch {
+                        val repository =
+                            DailyPlannerRepository(DailyPlannerDatabase.getInstance(context))
+                        repository.delete(data[position])
+                        val data = repository.getAllDailyPlanItems()
+
+                        withContext(Dispatchers.Main) {
+                            setData(data, context)
+                        }
                     }
                 }
             }
 
-            deleteBtn.setOnClickListener {
-                CoroutineScope(Dispatchers.IO).launch {
-                    val repository = DailyPlannerRepository(DailyPlannerDatabase.getInstance(context))
-                    repository.delete(data[position])
-                    val data = repository.getAllDailyPlanItems()
 
-                    withContext(Dispatchers.Main){
-                        setData(data, context)
-                    }
-                }
-            }
         }
     }
 }

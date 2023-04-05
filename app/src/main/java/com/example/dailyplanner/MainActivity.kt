@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         //Clear all plans
         clearAllBtn.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
-                repository.deleteAll(repository.getAllDailyPlanItems())
+                repository.deleteAll()
                 val data = repository.getAllDailyPlanItems()
 
                 runOnUiThread {
