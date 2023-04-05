@@ -68,7 +68,10 @@ class DailyPlannerAdapter() : RecyclerView.Adapter<DailyPlannerAdapter.DailyPlan
                 taskBg.background = itemView.resources.getDrawable(R.drawable.completed_task)
             } else {
                 doneBtn.text = "Done"
+                doneBtn.visibility = View.VISIBLE
+                deleteBtn.visibility = View.VISIBLE
                 tvCompleted.visibility = View.INVISIBLE
+                taskBg.background = itemView.resources.getDrawable(R.drawable.rounded_corners)
 
                 doneBtn.setOnClickListener {
                     CoroutineScope(Dispatchers.IO).launch {
@@ -96,6 +99,8 @@ class DailyPlannerAdapter() : RecyclerView.Adapter<DailyPlannerAdapter.DailyPlan
                     }
                 }
             }
+
+
 
 
         }
