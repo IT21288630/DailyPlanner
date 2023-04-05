@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Daily Planner</string>
+    <string name="task">task</string>
+    <string name="due_at_10am">Due at 10AM</string>
+    <string name="completed">Completed</string>
+    <string name="done">Done</string>
+    <string name="today_plan">Today Plan</string>
+    <string name="add_task">Add Task</string>
+    <string name="clear_all">Clear All</string>
+    <string name="add_button">Add Button</string>
+</resources>

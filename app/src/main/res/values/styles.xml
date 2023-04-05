@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Buttons">
+        <item name="android:elevation">5dp</item>
+    </style>
+
+    <style name="AddButton" parent="Buttons">
+        <item name="android:background">@drawable/custom_add_btn</item>
+        <item name="android:src">@drawable/ic_add</item>
+        <item name="android:contentDescription">@string/add_button</item>
+    </style>
+</resources>
